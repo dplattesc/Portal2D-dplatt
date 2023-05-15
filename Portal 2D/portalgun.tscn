@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdcbprokwcsre"]
+
+[ext_resource type="Texture2D" uid="uid://bffdf4s0uhwq8" path="res://textures/portalgun.png" id="1_77fjs"]
+[ext_resource type="Script" path="res://portalgun.gd" id="1_msdtv"]
+
+[node name="portalgun" type="Node2D"]
+script = ExtResource("1_msdtv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_77fjs")

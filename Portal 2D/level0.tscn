@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://civay6ei13hqa"]
+[gd_scene load_steps=9 format=3 uid="uid://civay6ei13hqa"]
 
 [ext_resource type="Texture2D" uid="uid://f301y0jkflo0" path="res://textures/lab tileset finished transparent.png" id="2_d2cjp"]
 [ext_resource type="PackedScene" uid="uid://bast1x61rd14a" path="res://portal.tscn" id="3_0ddpa"]
 [ext_resource type="PackedScene" uid="uid://ds2f1jgpt3n0j" path="res://object.tscn" id="4_gs410"]
 [ext_resource type="PackedScene" uid="uid://60jyebthstv5" path="res://character.tscn" id="4_sjjbm"]
+[ext_resource type="PackedScene" uid="uid://bdcbprokwcsre" path="res://portalgun.tscn" id="5_a0w7r"]
+[ext_resource type="PackedScene" uid="uid://sf7vqhorhl5d" path="res://button.tscn" id="6_dc8oc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5cwv"]
 texture = ExtResource("2_d2cjp")
@@ -1083,6 +1085,7 @@ sources/0 = SubResource("TileSetAtlasSource_y5cwv")
 position = Vector2(-8, 6)
 
 [node name="TileMapDefault" type="TileMap" parent="."]
+texture_filter = 1
 position = Vector2(288, 256)
 tile_set = SubResource("TileSet_cvbj1")
 cell_quadrant_size = 32
@@ -1092,7 +1095,7 @@ layer_0/tile_data = PackedInt32Array(4, 196608, 3, 5, 196608, 3, 6, 196608, 3, 7
 
 [node name="portal" parent="." instance=ExtResource("3_0ddpa")]
 modulate = Color(0, 1, 1, 1)
-position = Vector2(751, 31)
+position = Vector2(749, 29)
 
 [node name="object" parent="." instance=ExtResource("4_gs410")]
 position = Vector2(429, 201)
@@ -1102,7 +1105,7 @@ angular_damp = 1.0
 
 [node name="portal2" parent="." instance=ExtResource("3_0ddpa")]
 modulate = Color(1, 0.415686, 0.0352941, 1)
-position = Vector2(672, 621)
+position = Vector2(672, 626)
 rotation = -1.57054
 
 [node name="character" parent="." instance=ExtResource("4_sjjbm")]
@@ -1113,3 +1116,9 @@ max_contacts_reported = 0
 contact_monitor = false
 
 [node name="Camera2D" type="Camera2D" parent="character"]
+
+[node name="portalgun" parent="." instance=ExtResource("5_a0w7r")]
+position = Vector2(407, 195)
+
+[node name="button" parent="." instance=ExtResource("6_dc8oc")]
+position = Vector2(1220, 256)

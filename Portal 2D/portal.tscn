@@ -158,4 +158,4 @@ rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ty0ov")
 autoplay = "default"
-frame_progress = 0.562664
+frame_progress = 0.710854

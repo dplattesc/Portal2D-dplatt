@@ -21,7 +21,7 @@ func _physics_process(delta):
 		apply_impulse(Vector2(0, jumpForce))
 	
 	if isPickedUp:
-		objectPickedUp.position = position + direction * 20
+		objectPickedUp.position = position + direction * 45
 
 	if pickTimer <= 0:
 		for body in get_colliding_bodies():
