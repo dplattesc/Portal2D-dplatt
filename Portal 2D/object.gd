@@ -3,20 +3,17 @@ var canTeleport = true
 
 func lockTeleport():
 	canTeleport = false
-	await get_tree().create_timer(.3).timeout
+	await get_tree().create_timer(.1).timeout
 	canTeleport = true
 
 
 func _on_area_2d_area_entered(area):
-	print("entered")
 	if canTeleport == true and area.is_in_group("portal"):
-		print("entered portal")
 		lockTeleport()
 		teleport(area)
-	pass # Replace with function body.
+	pass
 	
 func teleport(portal1):
-	print("teleport begin")
 	for portal2 in get_tree().get_nodes_in_group("portal"):
 		if portal2 != portal1 and portal2.id == portal1.id:
 			await get_tree().create_timer(0.01).timeout
@@ -27,6 +24,4 @@ func teleport(portal1):
 			var dir = portal2.point.global_position - portal2.global_position as Vector2
 			dir = dir.normalized()
 			apply_central_impulse(dir * exitSpeed)
-			var angle_diff = portal2.rotation - portal1.rotation
-			rotation += angle_diff
  

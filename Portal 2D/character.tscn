@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://60jyebthstv5"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_ttimu"]
+[ext_resource type="PackedScene" uid="uid://ds2f1jgpt3n0j" path="res://object.tscn" id="1_ycphc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47rng"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ilke"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nih1p"]
+
+[node name="character" instance=ExtResource("1_ycphc")]
+position = Vector2(0, 0)
+max_contacts_reported = 5
+can_sleep = false
+script = ExtResource("1_ttimu")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_47rng")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_5ilke")
+debug_color = Color(0.913725, 0.290196, 0, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+scale = Vector2(1.04, 20)
+texture = SubResource("PlaceholderTexture2D_nih1p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="3"]
+rotation = 1.56966
+scale = Vector2(1.04, 20)
+texture = SubResource("PlaceholderTexture2D_nih1p")
