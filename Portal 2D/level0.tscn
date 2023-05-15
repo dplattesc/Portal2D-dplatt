@@ -1095,7 +1095,7 @@ modulate = Color(0, 1, 1, 1)
 position = Vector2(751, 31)
 
 [node name="object" parent="." instance=ExtResource("4_gs410")]
-position = Vector2(470, 203)
+position = Vector2(429, 201)
 gravity_scale = 0.7
 linear_damp = 0.1
 angular_damp = 1.0

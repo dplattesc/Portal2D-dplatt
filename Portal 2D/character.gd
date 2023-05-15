@@ -3,11 +3,17 @@ const speed = 10
 const jumpForce = -200
 const friction = 0.95
 var on_ground = true
+var objectPickedUp: Node2D = null
+var isPickedUp: bool = false
+var pickTimer = 0
+var dropTimer = 0
+		
 func _ready():
 	contact_monitor = true
 	max_contacts_reported = 10
 func _physics_process(delta):
-	
+	var target_position = get_global_mouse_position()
+	var direction = (target_position - position).normalized()
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 15)) #create ray query below character
 	var collision = get_world_2d().direct_space_state.intersect_ray(query) #check world collision at ray query
 	if get_colliding_bodies() and collision: #check for touching ground
@@ -15,12 +21,31 @@ func _physics_process(delta):
 	else:
 		on_ground = false
 	var motion = Vector2()
-	motion.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")  #set x motion with keybinds
-	print(linear_velocity)
+	motion.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")  #set x motion with keybinds
 	if motion.length_squared() > 0: 
 		motion = motion.normalized() * speed
 		apply_impulse(Vector2(motion.x, 0)) #set speed
 	if motion.length_squared() == 0 and on_ground: 
 		linear_velocity.x *= friction #slow down character on ground
-	if on_ground and Input.is_action_just_pressed("ui_select"): #set y motion with jump
+	if on_ground and Input.is_action_just_pressed("jump"): #set y motion with jump
 		apply_impulse(Vector2(0, jumpForce))
+	if isPickedUp:
+		objectPickedUp.position = position + direction * 20
+	for body in get_colliding_bodies():
+		if body.name == "object":
+			objectPickedUp = body
+			break
+	if Input.is_action_pressed("pick_up") and not isPickedUp and objectPickedUp != null and pickTimer <= 0:
+		print("pick up = true")
+		isPickedUp = true
+		objectPickedUp.get_node("CollisionShape2D").disabled = true
+		dropTimer = 0.5
+	elif Input.is_action_pressed("pick_up") and isPickedUp and dropTimer <= 0:
+		print("pick up = false")
+		isPickedUp = false
+		objectPickedUp.position = position + direction * 30
+		objectPickedUp.get_node("CollisionShape2D").disabled = false
+		objectPickedUp = null
+		pickTimer = 0.5
+	pickTimer = max(0, pickTimer - delta)
+	dropTimer = max(0, dropTimer - delta)
