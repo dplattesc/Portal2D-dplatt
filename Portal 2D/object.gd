@@ -1,5 +1,8 @@
 extends RigidBody2D
 var canTeleport = true
+func _ready():
+	contact_monitor = true
+	max_contacts_reported = 10
 
 func lockTeleport():
 	canTeleport = false

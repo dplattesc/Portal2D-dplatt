@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://60jyebthstv5"]
+[gd_scene load_steps=7 format=3 uid="uid://60jyebthstv5"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_ttimu"]
 [ext_resource type="PackedScene" uid="uid://ds2f1jgpt3n0j" path="res://object.tscn" id="1_ycphc"]
+[ext_resource type="Texture2D" uid="uid://j2338r00qooc" path="res://textures/sphere.png" id="3_m837w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47rng"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ilke"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nih1p"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_al8lm"]
 
 [node name="character" instance=ExtResource("1_ycphc")]
 position = Vector2(0, 0)
@@ -22,11 +23,13 @@ shape = SubResource("CircleShape2D_47rng")
 shape = SubResource("CircleShape2D_5ilke")
 debug_color = Color(0.913725, 0.290196, 0, 0.419608)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
-scale = Vector2(1.04, 20)
-texture = SubResource("PlaceholderTexture2D_nih1p")
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(0, -1.86265e-09)
+scale = Vector2(0.8677, 0.867059)
+texture = ExtResource("3_m837w")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="3"]
-rotation = 1.56966
-scale = Vector2(1.04, 20)
-texture = SubResource("PlaceholderTexture2D_nih1p")
+modulate = Color(0, 0, 0, 1)
+position = Vector2(4.75, 0)
+scale = Vector2(10.5, 1)
+texture = SubResource("PlaceholderTexture2D_al8lm")
