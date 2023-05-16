@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://button.gd" id="1_qjoyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdokr"]
-size = Vector2(46, 6)
+size = Vector2(46, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pc322"]
 atlas = ExtResource("1_mj0b6")
@@ -42,7 +42,7 @@ script = ExtResource("1_qjoyj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -2
-position = Vector2(-62, -132)
+position = Vector2(-62, -131)
 shape = SubResource("RectangleShape2D_sdokr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

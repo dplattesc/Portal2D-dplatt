@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://portal.gd" id="1_l8fn3"]
 [ext_resource type="Texture2D" uid="uid://wioavly886nx" path="res://textures/portal3_atlas.png" id="2_pfabm"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_utyag"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u3m6"]
+size = Vector2(20, 29.3478)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jovf3"]
 
@@ -138,8 +139,9 @@ animations = [{
 script = ExtResource("1_l8fn3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.34465e-07)
 scale = Vector2(1, 1.84)
-shape = SubResource("CapsuleShape2D_utyag")
+shape = SubResource("RectangleShape2D_5u3m6")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="point" type="Marker2D" parent="."]

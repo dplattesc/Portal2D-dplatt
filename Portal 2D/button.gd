@@ -9,7 +9,6 @@ func _ready():
 
 
 func _process(delta):
-	print(get_colliding_bodies())
 	if "RigidBody2D" in str(get_colliding_bodies()):
 		$AnimatedSprite2D.play("pressed")
 	else:
