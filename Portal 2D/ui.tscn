@@ -5,6 +5,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -14,7 +16,6 @@ offset_left = 26.0
 offset_top = 24.0
 offset_right = 397.0
 offset_bottom = 102.0
-text = "WASD or arrow keys to move
-spacebar or W/up arrow to jump
+text = "WASD or arrow keys and space bar to move
 E to pick up object
-portal shooting mechanics not yet implemented"
+left and right click to shoot portals"

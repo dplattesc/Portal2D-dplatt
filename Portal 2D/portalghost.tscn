@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp41bmvc68o3c"]
+
+[ext_resource type="Script" path="res://portal.gd" id="1_cj2m1"]
+[ext_resource type="Texture2D" uid="uid://dy2es8tqv502m" path="res://textures/portalghost.png" id="2_dha7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkrih"]
+size = Vector2(20, 29.3478)
+
+[node name="portalghost" type="Area2D"]
+script = ExtResource("1_cj2m1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.796078, 0, 1)
+texture_filter = 1
+position = Vector2(1.5, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_dha7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1.84)
+shape = SubResource("RectangleShape2D_jkrih")
+debug_color = Color(1, 1, 1, 0.419608)

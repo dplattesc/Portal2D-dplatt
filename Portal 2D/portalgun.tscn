@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdcbprokwcsre"]
+[gd_scene load_steps=4 format=3 uid="uid://bdcbprokwcsre"]
 
 [ext_resource type="Texture2D" uid="uid://bffdf4s0uhwq8" path="res://textures/portalgun.png" id="1_77fjs"]
 [ext_resource type="Script" path="res://portalgun.gd" id="1_msdtv"]
+[ext_resource type="Script" path="res://portalgunraycast.gd" id="3_orbjm"]
 
 [node name="portalgun" type="Node2D"]
 script = ExtResource("1_msdtv")
@@ -9,3 +10,8 @@ script = ExtResource("1_msdtv")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_77fjs")
+
+[node name="portalgunraycast" type="RayCast2D" parent="."]
+position = Vector2(-24, 0)
+target_position = Vector2(1000, 0)
+script = ExtResource("3_orbjm")

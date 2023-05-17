@@ -19,3 +19,4 @@ func _process(delta):
 	else:
 		scale.y = -1
 	pass
+
