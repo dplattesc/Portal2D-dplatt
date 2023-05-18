@@ -1,6 +1,5 @@
 extends RigidBody2D
 var canTeleport = true
-	contact_monitor = true
 
 func lockTeleport():
 	canTeleport = false

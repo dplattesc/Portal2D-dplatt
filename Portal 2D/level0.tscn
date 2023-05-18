@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://civay6ei13hqa"]
 
 [ext_resource type="Texture2D" uid="uid://f301y0jkflo0" path="res://textures/lab tileset finished transparent.png" id="2_d2cjp"]
-[ext_resource type="PackedScene" uid="uid://bast1x61rd14a" path="res://portal.tscn" id="3_0ddpa"]
+[ext_resource type="PackedScene" uid="uid://7lmsn8p1e7gl" path="res://portal.tscn" id="3_0ddpa"]
 [ext_resource type="PackedScene" uid="uid://ds2f1jgpt3n0j" path="res://object.tscn" id="4_gs410"]
 [ext_resource type="PackedScene" uid="uid://60jyebthstv5" path="res://character.tscn" id="4_sjjbm"]
 [ext_resource type="PackedScene" uid="uid://bdcbprokwcsre" path="res://portalgun.tscn" id="5_a0w7r"]

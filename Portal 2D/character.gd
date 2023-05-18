@@ -58,7 +58,7 @@ func objectRayCast():
 	var ray_end = objectPickedUp.position + direction * 40
 	var space_state = get_world_2d().direct_space_state
 	var objectQuery = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
-	var objectCollision = get_world_2d().direct_space_state.intersect_ray(objectQuery)
+	var objectCollision = space_state.intersect_ray(objectQuery)
 	if "TileMap" in str(objectCollision):
 		return false
 	else:
