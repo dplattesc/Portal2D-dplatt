@@ -12,7 +12,7 @@ func _ready():
 
 
 func _on_area_2d_area_entered(area):
-	print("entered")
+	#print("entered")
 	if canTeleport == true and area.is_in_group("portal"):
 		print("entered portal")
 		lockTeleport()

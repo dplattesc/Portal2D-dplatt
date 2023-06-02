@@ -6,6 +6,7 @@ func _ready():
 	add_exception(get_parent().get_parent().get_node("object"))
 	add_exception(get_parent().get_parent().get_node("character"))
 	add_exception(get_parent().get_parent().get_node("button"))
+	
 	pass # Replace with function body.
 
 
@@ -18,20 +19,17 @@ func _process(_delta):
 	var ghostPortalNormal = get_collision_normal()
 	var ghostPortalAngle = atan2(ghostPortalNormal.y, ghostPortalNormal.x)
 	ghostPortal.rotation = ghostPortalAngle
+	
 	if Input.is_action_pressed("left_click") and blueTimer >= 20:
 		closePortal(bluePortal)
-		bluePortal.position = get_collision_point()+Vector2(5,-5.5)+(get_collision_normal()*10)
-		var bluePortalNormal = get_collision_normal()
-		var bluePortalAngle = atan2(bluePortalNormal.y, bluePortalNormal.x)
-		bluePortal.rotation = bluePortalAngle
+		bluePortal.position = ghostPortal.position
+		bluePortal.rotation = ghostPortalAngle
 		openPortal(bluePortal)
 		blueTimer = 0
 	elif Input.is_action_pressed("right_click") and orangeTimer >= 20:
 		closePortal(orangePortal)
-		orangePortal.position= get_collision_point()+Vector2(5,-5.5)+(get_collision_normal()*10)
-		var orangePortalNormal = get_collision_normal()
-		var orangePortalAngle = atan2(orangePortalNormal.y, orangePortalNormal.x)
-		orangePortal.rotation = orangePortalAngle
+		orangePortal.position= ghostPortal.position
+		orangePortal.rotation = ghostPortalAngle
 		openPortal(orangePortal)
 		orangeTimer = 0
 	blueTimer = blueTimer + 1 

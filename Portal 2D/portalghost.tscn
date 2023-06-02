@@ -19,7 +19,7 @@ texture = ExtResource("2_dha7m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1, 1.84)
 shape = SubResource("RectangleShape2D_jkrih")
-debug_color = Color(1, 1, 1, 0.419608)
+debug_color = Color(0, 0, 1, 0.419608)
 
 [node name="point" type="Marker2D" parent="."]
 position = Vector2(10, 0)
