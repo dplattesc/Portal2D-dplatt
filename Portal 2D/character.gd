@@ -47,6 +47,14 @@ func _physics_process(delta):
 		get_tree().reload_current_scene()
 	if Input.is_action_pressed("wipe"):
 		get_tree().change_scene_to_file("res://menu.tscn")
+		
+	var camera = get_node("Camera2D")
+	var curZoom = camera.get_zoom()
+	print(curZoom)
+	if Input.is_action_just_released("zoom_in") and curZoom < Vector2(3,3):
+		camera.zoom = curZoom+Vector2(0.1,0.1)
+	elif Input.is_action_just_released("zoom_out") and curZoom > Vector2(0.9,0.9):
+		camera.zoom = curZoom-Vector2(0.1,0.1)
 func onGroundRayCast():
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 15)) #create ray query below character
 	var collision = get_world_2d().direct_space_state.intersect_ray(query) #check world collision at ray query

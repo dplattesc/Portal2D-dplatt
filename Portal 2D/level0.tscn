@@ -2834,9 +2834,6 @@ gravity_scale = 0.7
 max_contacts_reported = 0
 contact_monitor = false
 
-[node name="Camera2D" type="Camera2D" parent="character"]
-zoom = Vector2(1.25, 1.25)
-
 [node name="portalgun" parent="." instance=ExtResource("5_a0w7r")]
 position = Vector2(559, -152)
 

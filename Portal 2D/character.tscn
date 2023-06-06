@@ -36,3 +36,6 @@ texture_filter = 1
 position = Vector2(2.38419e-07, -2.38419e-07)
 scale = Vector2(0.953804, 0.953804)
 texture = ExtResource("4_ajglv")
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+zoom = Vector2(1.25, 1.25)
