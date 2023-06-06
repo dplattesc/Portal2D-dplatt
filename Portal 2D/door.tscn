@@ -184,7 +184,7 @@ position = Vector2(-1, -33)
 shape = SubResource("RectangleShape2D_hutjs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 4
+z_index = 7
 texture_filter = 1
 position = Vector2(6, -37)
 texture = ExtResource("3_lypgb")

@@ -25,7 +25,7 @@ func _physics_process(delta):
 
 	if pickTimer <= 0:
 		for body in get_colliding_bodies():
-			if body.name == "object":
+			if body.name == "object" or body.name == "object2" or body.name == "object3":
 				objectPickedUp = body
 				break
 	if Input.is_action_pressed("pick_up") and not isPickedUp and objectPickedUp != null and pickTimer <= 0:
@@ -45,6 +45,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
+	if Input.is_action_pressed("wipe"):
+		get_tree().change_scene_to_file("res://level0.tscn")
 func onGroundRayCast():
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 15)) #create ray query below character
 	var collision = get_world_2d().direct_space_state.intersect_ray(query) #check world collision at ray query

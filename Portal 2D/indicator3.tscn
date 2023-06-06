@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://piup50vgm8r"]
+
+[ext_resource type="Texture2D" uid="uid://ukfwcapulaox" path="res://textures/indi3.png" id="1_gnx0t"]
+
+[node name="indicator3" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+texture_filter = 1
+texture = ExtResource("1_gnx0t")
