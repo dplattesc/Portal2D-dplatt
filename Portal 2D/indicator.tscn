@@ -5,6 +5,6 @@
 [node name="indicator1" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.701961, 0.180392, 1)
+modulate = Color(0, 1, 1, 1)
 texture_filter = 1
 texture = ExtResource("1_yfrib")

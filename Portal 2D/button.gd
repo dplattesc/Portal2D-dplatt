@@ -34,7 +34,7 @@ func _process(_delta):
 			doorAnimation.play("opening")
 
 		for indicator in indicators:
-			indicator.get_node("Sprite2D").modulate = Color(0, 1, 1)
+			indicator.get_node("Sprite2D").modulate = Color(1,0.7,0.18)
 		
 	elif "RigidBody2D" not in str(get_colliding_bodies()) and pressed == true:
 		pressed = false
@@ -52,4 +52,4 @@ func _process(_delta):
 			doorAnimation.play("closing")
 
 		for indicator in indicators:
-			indicator.get_node("Sprite2D").modulate = Color(1,0.7,0.18)
+			indicator.get_node("Sprite2D").modulate = Color(0,1,1)

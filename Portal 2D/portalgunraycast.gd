@@ -13,10 +13,27 @@ func _process(_delta):
 	var bluePortal=get_parent().get_parent().get_node("portal")
 	var orangePortal=get_parent().get_parent().get_node("portal2")
 	var ghostPortal=get_parent().get_parent().get_node("portalghost")
+	var tileMapBlack = get_parent().get_parent().get_node("TileMapBlack")
 	ghostPortal.position=get_collision_point()+Vector2(5,-5.5) +(get_collision_normal()*10)
 	var ghostPortalNormal = get_collision_normal()
 	var ghostPortalAngle = atan2(ghostPortalNormal.y, ghostPortalNormal.x)
 	ghostPortal.rotation = ghostPortalAngle
+	
+	
+	var blackPos = tileMapBlack.local_to_map(get_collision_point())
+	if rad_to_deg(ghostPortalAngle) == 180:
+		blackPos += Vector2i(1,0)
+	elif rad_to_deg(ghostPortalAngle) == 90:
+		blackPos += Vector2i(0,-1)
+
+	var overlappingTile = tileMapBlack.get_cell_source_id(1, Vector2i(blackPos))
+	if overlappingTile != -1:
+		ghostPortal.get_node("Sprite2D").modulate = Color(1,0,0)
+		return
+	else:
+		ghostPortal.get_node("Sprite2D").modulate = Color(0,1,0)
+
+	
 	if Input.is_action_pressed("left_click") and blueTimer >= 20:
 		closePortal(bluePortal)
 		bluePortal.position = ghostPortal.position
