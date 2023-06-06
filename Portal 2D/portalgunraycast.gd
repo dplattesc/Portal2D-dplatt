@@ -5,8 +5,6 @@ var orangeTimer = 0
 func _ready():
 	add_exception(get_parent().get_parent().get_node("object"))
 	add_exception(get_parent().get_parent().get_node("character"))
-	add_exception(get_parent().get_parent().get_node("button"))
-	
 	pass # Replace with function body.
 
 
@@ -19,7 +17,6 @@ func _process(_delta):
 	var ghostPortalNormal = get_collision_normal()
 	var ghostPortalAngle = atan2(ghostPortalNormal.y, ghostPortalNormal.x)
 	ghostPortal.rotation = ghostPortalAngle
-	
 	if Input.is_action_pressed("left_click") and blueTimer >= 20:
 		closePortal(bluePortal)
 		bluePortal.position = ghostPortal.position
@@ -47,4 +44,5 @@ func closePortal(portal):
 	portalSpriteDupe.position = portal.position-Vector2(5,-5.5)
 	portalSpriteDupe.rotation = portal.rotation+deg_to_rad(90)
 	portalSpriteDupe.play("close")
+
 	

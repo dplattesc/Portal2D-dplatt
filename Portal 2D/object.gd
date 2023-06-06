@@ -13,7 +13,7 @@ func _ready():
 
 func _on_area_2d_area_entered(area):
 	#print("entered")
-	if canTeleport == true and area.is_in_group("portal"):
+	if canTeleport == true and area.is_in_group("portal") and portalIsAlive():
 		print("entered portal")
 		lockTeleport()
 		teleport(area)
@@ -33,3 +33,12 @@ func teleport(portal1):
 			apply_central_impulse(dir * exitSpeed)
 			var angle_diff = portal2.rotation - portal1.rotation
 			rotation += angle_diff
+
+func portalIsAlive():
+	var portal = get_parent().get_node("portal") 
+	var portal2 = get_parent().get_node("portal2") 
+	if portal.position == Vector2(0,0) or portal2.position == Vector2(0,0):
+		return false
+	else:
+		return true
+	

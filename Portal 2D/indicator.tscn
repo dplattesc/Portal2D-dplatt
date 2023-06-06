@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53ab8fo0oerp"]
+
+[ext_resource type="Texture2D" uid="uid://q224e17wvatg" path="res://textures/indi1.png" id="1_yfrib"]
+
+[node name="indicator1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.701961, 0.180392, 1)
+texture_filter = 1
+texture = ExtResource("1_yfrib")

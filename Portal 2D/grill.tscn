@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgn7qkfv0wybl"]
+
+[ext_resource type="Shader" path="res://grill.gdshader" id="1_mllv7"]
+[ext_resource type="Texture2D" uid="uid://ta2ch6n4w748" path="res://textures/grillside1.png" id="2_un0m8"]
+[ext_resource type="Texture2D" uid="uid://4tfase153j0a" path="res://textures/grillside2.png" id="3_awbq0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8emg0"]
+shader = ExtResource("1_mllv7")
+shader_parameter/WATER_COL = Color(0.176471, 0.635294, 0.85098, 1)
+shader_parameter/WATER2_COL = Color(0.0588235, 0.529412, 0.776471, 1)
+shader_parameter/FOAM_COL = Color(0.87451, 0.988235, 1, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gt6ra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpvbl"]
+size = Vector2(20, 64)
+
+[node name="grill" type="Area2D"]
+
+[node name="barleft" type="Sprite2D" parent="."]
+z_index = 3
+texture_filter = 1
+texture = ExtResource("2_un0m8")
+
+[node name="grillleft" type="Sprite2D" parent="."]
+z_index = 2
+material = SubResource("ShaderMaterial_8emg0")
+position = Vector2(-5, 0)
+scale = Vector2(10, 64)
+texture = SubResource("CanvasTexture_gt6ra")
+
+[node name="grillright" type="Sprite2D" parent="."]
+z_index = 7
+material = SubResource("ShaderMaterial_8emg0")
+position = Vector2(5, 0)
+scale = Vector2(10, 64)
+texture = SubResource("CanvasTexture_gt6ra")
+
+[node name="barright" type="Sprite2D" parent="."]
+z_index = 7
+texture_filter = 1
+texture = ExtResource("3_awbq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fpvbl")

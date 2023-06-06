@@ -342,6 +342,7 @@ texture_filter = 1
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ty0ov")
+animation = &"close"
 autoplay = "default"
 script = ExtResource("3_8kc1t")
 

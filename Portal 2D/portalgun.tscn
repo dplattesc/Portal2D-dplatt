@@ -8,6 +8,7 @@
 script = ExtResource("1_msdtv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 6
 texture_filter = 1
 texture = ExtResource("1_77fjs")
 

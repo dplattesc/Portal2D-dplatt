@@ -43,6 +43,8 @@ func _physics_process(delta):
 	pickTimer = max(0, pickTimer - delta)
 	dropTimer = max(0, dropTimer - delta)
 	
+	if Input.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
 func onGroundRayCast():
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 15)) #create ray query below character
 	var collision = get_world_2d().direct_space_state.intersect_ray(query) #check world collision at ray query
@@ -59,7 +61,15 @@ func objectRayCast():
 	var space_state = get_world_2d().direct_space_state
 	var objectQuery = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
 	var objectCollision = space_state.intersect_ray(objectQuery)
+
+	var alternativeObjectQuery = PhysicsRayQueryParameters2D.create(self.position, objectPickedUp.position)
+	var alternativeObjectCollision = space_state.intersect_ray(alternativeObjectQuery)
+	print(alternativeObjectCollision)
+	
+	
 	if "TileMap" in str(objectCollision):
+		return false
+	elif "Body2D" in str(alternativeObjectCollision):
 		return false
 	else:
 		return true

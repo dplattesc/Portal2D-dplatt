@@ -8,6 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq3ld"]
 
 [node name="object" type="RigidBody2D"]
+z_index = 5
 position = Vector2(2, 0)
 max_contacts_reported = 1
 contact_monitor = true

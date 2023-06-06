@@ -11,6 +11,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_al8lm"]
 
 [node name="character" instance=ExtResource("1_ycphc")]
+z_index = 6
 position = Vector2(0, 0)
 max_contacts_reported = 5
 can_sleep = false
@@ -24,13 +25,14 @@ shape = SubResource("CircleShape2D_5ilke")
 debug_color = Color(0.913725, 0.290196, 0, 0.419608)
 
 [node name="Sprite2D" parent="." index="2"]
+z_index = 6
 position = Vector2(0, -1.86265e-09)
 scale = Vector2(0.8677, 0.867059)
 texture = ExtResource("3_m837w")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="3"]
 modulate = Color(0, 0, 0, 1)
-z_index = 1
+z_index = 6
 position = Vector2(4.75, 0)
 scale = Vector2(10.5, 1)
 texture = SubResource("PlaceholderTexture2D_al8lm")
