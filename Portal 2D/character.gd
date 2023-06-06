@@ -46,7 +46,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
 	if Input.is_action_pressed("wipe"):
-		get_tree().change_scene_to_file("res://level0.tscn")
+		get_tree().change_scene_to_file("res://menu.tscn")
 func onGroundRayCast():
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 15)) #create ray query below character
 	var collision = get_world_2d().direct_space_state.intersect_ray(query) #check world collision at ray query

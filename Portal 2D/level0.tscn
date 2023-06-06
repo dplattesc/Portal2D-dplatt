@@ -2864,4 +2864,4 @@ position = Vector2(1251, -155)
 position = Vector2(878, -91)
 
 [node name="indicator1b" parent="." instance=ExtResource("13_e4nlo")]
-position = Vector2(984, -245)
+position = Vector2(988, -243)
