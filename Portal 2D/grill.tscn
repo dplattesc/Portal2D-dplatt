@@ -18,7 +18,8 @@ shader_parameter/offset = Vector2(0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpvbl"]
 size = Vector2(20, 64)
 
-[node name="grill" type="Area2D"]
+[node name="grill" type="StaticBody2D"]
+collision_layer = 4
 
 [node name="barleft" type="Sprite2D" parent="."]
 z_index = 3

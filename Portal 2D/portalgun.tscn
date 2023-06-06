@@ -15,4 +15,5 @@ texture = ExtResource("1_77fjs")
 [node name="portalgunraycast" type="RayCast2D" parent="."]
 position = Vector2(-24, 0)
 target_position = Vector2(1000, 0)
+collision_mask = 5
 script = ExtResource("3_orbjm")

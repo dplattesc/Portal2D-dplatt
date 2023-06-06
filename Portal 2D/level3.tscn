@@ -2818,7 +2818,7 @@ modulate = Color(0, 1, 1, 1)
 rotation = 3.14159
 
 [node name="object" parent="." instance=ExtResource("5_vo5if")]
-position = Vector2(1098, 1482)
+position = Vector2(1092, 1475)
 gravity_scale = 0.7
 linear_damp = 0.1
 angular_damp = 1.0

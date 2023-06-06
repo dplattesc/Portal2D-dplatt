@@ -4,11 +4,6 @@ var currentBodies = []
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
-	print(currentBodies)
-	
-	pass
-
 func _on_area_2d_body_entered(body):
 	if "RigidBody2D" in str(body):
 		currentBodies.append(body)
