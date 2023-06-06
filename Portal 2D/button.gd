@@ -1,24 +1,17 @@
-extends RigidBody2D
-var pressed = false
-
+extends StaticBody2D
+var currentBodies = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	contact_monitor = true
-	max_contacts_reported = 10
-	
 	pass # Replace with function body.
 
+func _process(delta):
+	print(currentBodies)
+	
+	pass
 
-func _process(_delta):
-	
-	if "RigidBody2D" in str(get_colliding_bodies()):
-		$AnimatedSprite2D.play("pressed")
-	else:
-		$AnimatedSprite2D.play("idle")
-	
-	
-	if "RigidBody2D" in str(get_colliding_bodies()) and not pressed:
-		pressed = true
+func _on_area_2d_body_entered(body):
+	if "RigidBody2D" in str(body):
+		currentBodies.append(body)
 		var buttonGroup = str(self)[6]
 		var doors = []
 		var indicators = []
@@ -28,16 +21,22 @@ func _process(_delta):
 			elif "indicator" in node.get_name() and str(node)[9] == buttonGroup:
 				indicators.append(node)
 		print(doors)
-		for door in doors:
-			door.collision_layer = 2
-			var doorAnimation = door.get_node("doorSprite")
-			doorAnimation.play("opening")
+		if currentBodies.size() == 1:
+			for door in doors:
+				door.collision_layer = 2
+				var doorAnimation = door.get_node("doorSprite")
+				doorAnimation.play("opening")
+			for indicator in indicators:
+				indicator.get_node("Sprite2D").modulate = Color(1,0.7,0.18)
+			$AnimatedSprite2D.play("pressed")
+	pass # Replace with function body.
 
-		for indicator in indicators:
-			indicator.get_node("Sprite2D").modulate = Color(1,0.7,0.18)
-		
-	elif "RigidBody2D" not in str(get_colliding_bodies()) and pressed == true:
-		pressed = false
+
+
+func _on_area_2d_body_exited(body):
+	print("exited:", body)
+	if "RigidBody2D" in str(body):
+		currentBodies.erase(body)
 		var buttonGroup = str(self)[6]
 		var doors = []
 		var indicators = []
@@ -46,10 +45,13 @@ func _process(_delta):
 				doors.append(node)
 			elif "indicator" in node.get_name() and str(node)[9] == buttonGroup:
 				indicators.append(node)
-		for door in doors:
-			door.collision_layer = 1
-			var doorAnimation = door.get_node("doorSprite")
-			doorAnimation.play("closing")
+		if currentBodies.size() == 0:
+			for door in doors:
+				door.collision_layer = 1
+				var doorAnimation = door.get_node("doorSprite")
+				doorAnimation.play("closing")
+			for indicator in indicators:
+				indicator.get_node("Sprite2D").modulate = Color(0,1,1)
+			$AnimatedSprite2D.play("idle")
+	pass # Replace with function body.
 
-		for indicator in indicators:
-			indicator.get_node("Sprite2D").modulate = Color(0,1,1)

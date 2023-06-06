@@ -52,7 +52,6 @@ func _process(_delta):
 		orangeTimer = 0
 	blueTimer = blueTimer + 1 
 	orangeTimer = orangeTimer + 1
-	print(blueTimer)
 	pass
 
 func openPortal(portal):

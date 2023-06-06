@@ -33,10 +33,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="button" type="RigidBody2D"]
-mass = 100000.0
-contact_monitor = true
-can_sleep = false
+[node name="button" type="StaticBody2D"]
 script = ExtResource("1_qjoyj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -50,3 +47,15 @@ position = Vector2(0.5, -12)
 scale = Vector2(1.7, 1)
 sprite_frames = SubResource("SpriteFrames_wj8fb")
 animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+z_index = -2
+position = Vector2(0.500008, -1)
+shape = SubResource("RectangleShape2D_sdokr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
